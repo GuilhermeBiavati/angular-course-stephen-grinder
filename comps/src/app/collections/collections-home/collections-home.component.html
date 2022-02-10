@@ -1,0 +1,16 @@
+<app-title>Table component</app-title>
+<app-table [data]="data" [headers]="headers" classNames="striped celled">
+</app-table>
+
+<app-title> Tab Menu </app-title>
+<app-tabs>
+  <a
+    class="item"
+    routerLink="./"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Biography</a
+  >
+  <a class="item" routerLink="companies" routerLinkActive="active">Companies</a>
+  <a class="item" routerLink="partners" routerLinkActive="active">Partners</a>
+</app-tabs>

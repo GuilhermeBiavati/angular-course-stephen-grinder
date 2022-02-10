@@ -1,0 +1,11 @@
+<app-title>Modal Component</app-title>
+<button (click)="onClick()">Show Modal</button>
+<app-modal (close)="onClick()" *ngIf="modalOpen">
+  <div modalTitle>Title</div>
+  asdf asd fas dfas dfas dfas dfas dasd afsd s dfas dafsd as df
+  <ng-container modalFooter>
+    <button class="ui button" (click)="onClick()">Close me</button>
+  </ng-container>
+</app-modal>
+<app-title>Accordion Component</app-title>
+<app-accordion [items]="items"> </app-accordion>
