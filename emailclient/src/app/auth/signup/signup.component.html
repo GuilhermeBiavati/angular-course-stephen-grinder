@@ -5,6 +5,7 @@
     <label for="">Username</label>
     <input formControlName="username" />
   </div>
+  {{ authForm.controls["username"].errors | json }}
   <div class="field">
     <label for="">Password</label>
     <input formControlName="password" />
@@ -15,4 +16,6 @@
   </div>
 
   <button class="ui submit button primary">Submit</button>
+
+  {{ authForm.errors | json }}
 </form>
