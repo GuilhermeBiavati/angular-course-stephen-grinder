@@ -34,6 +34,11 @@ export class SignupComponent implements OnInit {
     { validators: [this.matchPassword.validate] }
   );
 
+
+  username = this.authForm.controls['username'] as FormControl;
+  password = this.authForm.controls['password'] as FormControl;
+  passwordConfirmation = this.authForm.controls['passwordConfirmation'] as FormControl;
+
   constructor(private matchPassword: MathPassword, private uniqueUsername: UniqueUsername) { }
 
 

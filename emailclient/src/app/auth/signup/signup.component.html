@@ -1,21 +1,32 @@
 <h1>Create an Account</h1>
 
 <form class="ui form" [formGroup]="authForm">
-  <div class="field">
-    <label for="">Username</label>
-    <input formControlName="username" />
+  <app-input [label]="'Username'" [control]="username"></app-input>
+  <app-input
+    [label]="'Password'"
+    [control]="password"
+    type="password"
+  ></app-input>
+  <app-input
+    [label]="'Password Confirmation'"
+    [control]="passwordConfirmation"
+    type="password"
+  ></app-input>
+  <div
+    *ngIf="
+      authForm.controls['password'].touched &&
+      authForm.controls['passwordConfirmation'].touched &&
+      authForm.errors
+    "
+    class="ui red basic label"
+  >
+    <p *ngIf="authForm.errors['passwordsDontMatch']">
+      Password and confirmation must match
+    </p>
   </div>
-  {{ authForm.controls["username"].errors | json }}
-  <div class="field">
-    <label for="">Password</label>
-    <input formControlName="password" />
+  <div>
+    <button [disabled]="authForm.invalid" class="ui submit button primary">
+      Submit
+    </button>
   </div>
-  <div class="field">
-    <label for="">Password Confirmation</label>
-    <input formControlName="passwordConfirmation" />
-  </div>
-
-  <button class="ui submit button primary">Submit</button>
-
-  {{ authForm.errors | json }}
 </form>
