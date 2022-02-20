@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 import { MathPassword } from '../validators/math-password';
 import { UniqueUsername } from '../validators/unique-username';
 
@@ -39,10 +41,38 @@ export class SignupComponent implements OnInit {
   password = this.authForm.controls['password'] as FormControl;
   passwordConfirmation = this.authForm.controls['passwordConfirmation'] as FormControl;
 
-  constructor(private matchPassword: MathPassword, private uniqueUsername: UniqueUsername) { }
+  constructor(
+    private matchPassword: MathPassword,
+    private uniqueUsername: UniqueUsername,
+    private authService: AuthService,
+    private router: Router) { }
 
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    if (this.authForm.invalid) {
+      return;
+    }
+
+    // const { } = this.authForm.value;
+
+    this.authService.signup(this.authForm.value).subscribe(
+      {
+        next: (reponse) => {
+          this.router.navigateByUrl('/inbox');
+        },
+        error: (err) => {
+          if (!err.status) {
+            this.authForm.setErrors({ noConnection: true });
+          } else {
+            this.authForm.setErrors({ unknownError: true });
+          }
+        }
+      }
+    );
+
+
+  }
 }
