@@ -32,7 +32,7 @@ export class AuthService {
 
   url = 'https://api.angular-email.com'
 
-  signedin$ = new BehaviorSubject(false);
+  signedin$ = new BehaviorSubject<boolean | null>(null);
 
   constructor(private http: HttpClient) { }
 

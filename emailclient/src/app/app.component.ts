@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  signedin = false;
+  signedin: boolean | null = false;
 
   constructor(private authService: AuthService) {
 
@@ -20,7 +20,8 @@ export class AppComponent {
       this.signedin = signedin;
     });
 
-    this.authService.checkAuth
+    this.authService.checkAuth().subscribe(() => { });
+
   }
 
 }
