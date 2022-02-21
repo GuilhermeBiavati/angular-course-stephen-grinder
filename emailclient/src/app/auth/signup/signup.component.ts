@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { MathPassword } from '../validators/math-password';
+import { MatchPassword } from '../validators/match-password';
 import { UniqueUsername } from '../validators/unique-username';
 
 @Component({
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
   passwordConfirmation = this.authForm.controls['passwordConfirmation'] as FormControl;
 
   constructor(
-    private matchPassword: MathPassword,
+    private matchPassword: MatchPassword,
     private uniqueUsername: UniqueUsername,
     private authService: AuthService,
     private router: Router) { }

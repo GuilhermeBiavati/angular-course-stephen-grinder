@@ -3,7 +3,8 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -16,6 +17,7 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     // Modify or log the outgoing request
     const modifiedRequest = request.clone({
       withCredentials: true,
+      // headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     });
 
     return next.handle(modifiedRequest);
