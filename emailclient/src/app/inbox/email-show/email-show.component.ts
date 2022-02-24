@@ -9,6 +9,7 @@ import { Email } from '../email';
 })
 export class EmailShowComponent implements OnInit {
 
+  // email: Email | null = null;
   email: Email;
 
   constructor(private route: ActivatedRoute) {

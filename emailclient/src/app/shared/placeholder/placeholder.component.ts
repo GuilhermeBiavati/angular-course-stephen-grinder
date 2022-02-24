@@ -1,14 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-placeholder',
+  selector: 'app-placeholder-email',
   templateUrl: './placeholder.component.html',
   styleUrls: ['./placeholder.component.css']
 })
-export class PlaceholderComponent implements OnInit {
+export class PlaceholderEmailComponent implements OnInit {
 
   @Input() header: boolean = true;
   @Input() lines: number = 3;
+
+
 
   constructor() { }
 
