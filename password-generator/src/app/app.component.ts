@@ -18,12 +18,14 @@ export class AppComponent {
   onButtonClick() {
     const numbers = "1234567890";
     const letters = "abcdefghijklmnopqrstuvwyz";
+    const lettersCapsLock = "ABCDEFGHIJKLMNOPQRSTUVWYZ";
     const symbols = '!@#$%^&*()';
 
     let validChars = '';
 
     if (this.includeLetters) {
       validChars += letters
+      validChars += lettersCapsLock
     }
 
     if (this.includeNumbers) {
@@ -33,7 +35,6 @@ export class AppComponent {
     if (this.includeSymbols) {
       validChars += symbols
     }
-
 
     let genaratedPassword = '';
 
