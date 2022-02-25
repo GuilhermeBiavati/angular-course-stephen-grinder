@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlaceholderEmailComponent } from './placeholder/placeholder.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     InputComponent,
     PlaceholderEmailComponent,
-    TimesDirective
+    TimesDirective,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { PlaceholderEmailComponent } from './placeholder/placeholder.component';
   ],
   exports: [
     InputComponent,
-    PlaceholderEmailComponent
+    PlaceholderEmailComponent,
+    ModalComponent
   ]
 
 })
