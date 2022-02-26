@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  emailclient:
+    image: emailclient
+    build: .
+    ports:
+      - 4200:80

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 import { Component } from '@angular/core';
 
@@ -10,18 +11,18 @@ export class AppComponent {
 
   signedin: boolean | null = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
 
-
+    console.log('constructor');
   }
 
   ngOnInit() {
     this.authService.signedin$.subscribe((signedin) => {
       this.signedin = signedin;
+      this.router.navigateByUrl('/inbox');
     });
-
-    this.authService.checkAuth().subscribe(() => { });
-
+    this.authService.checkAuth().subscribe(() => {
+    });
   }
 
 }
