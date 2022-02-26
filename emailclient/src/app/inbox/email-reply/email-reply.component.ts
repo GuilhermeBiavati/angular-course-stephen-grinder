@@ -1,6 +1,6 @@
 import { EmailService } from './../email.service';
 import { Email } from './../email';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-email-reply',
