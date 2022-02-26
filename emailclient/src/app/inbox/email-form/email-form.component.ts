@@ -1,6 +1,6 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Email } from './../email';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-email-form',
@@ -18,30 +18,40 @@ export class EmailFormComponent implements OnInit {
     html: ''
   };
 
-  emailForm: FormGroup;
-  toControl: FormControl;
-  subjectControl: FormControl;
-  fromControl: FormControl;
-  textControl: FormControl;
+  @Output() emailSubmit = new EventEmitter();
+
+  emailForm: FormGroup = new FormGroup({});
+  toControl: FormControl = new FormControl();
+  subjectControl: FormControl = new FormControl();
+  fromControl: FormControl = new FormControl();
+  textControl: FormControl = new FormControl();
 
   constructor() {
-    const { subject, from, to, text } = this.email;
-
-    this.emailForm = new FormGroup({
-      to: new FormControl(to),
-      subject: new FormControl(subject),
-      from: new FormControl(from),
-      text: new FormControl(text),
-    });
-
-    this.toControl = this.emailForm.controls['to'] as FormControl;
-    this.subjectControl = this.emailForm.controls['to'] as FormControl;
-    this.fromControl = this.emailForm.controls['to'] as FormControl;
-    this.textControl = this.emailForm.controls['to'] as FormControl;
   }
 
   ngOnInit(): void {
+    console.log(this.email, 'aqui2');
 
+    const { subject, from, to, text } = this.email;
+
+    this.toControl = new FormControl(to);
+    this.subjectControl = new FormControl(subject);
+    this.fromControl = new FormControl({ value: from, disabled: true });
+    this.textControl = new FormControl(text);
+
+    this.emailForm = new FormGroup({
+      to: this.toControl,
+      subject: this.subjectControl,
+      from: this.fromControl,
+      text: this.textControl,
+    });
+  }
+
+  onSubmit() {
+    if (this.emailForm.invalid) {
+      return;
+    }
+    this.emailSubmit.emit(this.emailForm.value);
   }
 
 }
