@@ -1,3 +1,4 @@
+import { NotificationsModule } from './notifications/notifications.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,8 @@ import { WeatherModule } from './weather/weather.module';
   imports: [
     BrowserModule,
     WeatherModule,
-    HttpClientModule
+    HttpClientModule,
+    NotificationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

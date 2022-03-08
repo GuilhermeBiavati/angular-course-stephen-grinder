@@ -1,4 +1,11 @@
-<div *ngFor="let forecast of forecastData">
-  {{ forecast.temp | number: "1.0-1" }} °C
-  {{ forecast.dateString | date: "E d" }}
-</div>
+<ul class="list-group">
+  <li
+    *ngFor="let forecast of forecastData"
+    class="weather-item list-group-item"
+  >
+    <p class="temp">{{ forecast.temp | number: "1.0-1" }} °C</p>
+    <p class="day">
+      {{ forecast.dateString | date: "E d" }}
+    </p>
+  </li>
+</ul>
