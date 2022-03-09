@@ -1,3 +1,4 @@
+import { NewsApiModule } from './news-api/news-api.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,8 @@ import { WeatherModule } from './weather/weather.module';
     BrowserModule,
     WeatherModule,
     HttpClientModule,
-    NotificationsModule
+    NotificationsModule,
+    NewsApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
