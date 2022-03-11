@@ -5,7 +5,9 @@
       [ngClass]="page === currentPage ? 'active' : ''"
       *ngFor="let page of pageOptions"
     >
-      <a class="page-link">{{ page }}</a>
+      <a class="page-link" (click)="changePage(page)" style="cursor: pointer">{{
+        page
+      }}</a>
     </li>
   </ul>
 </nav>

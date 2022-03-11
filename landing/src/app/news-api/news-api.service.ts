@@ -24,7 +24,7 @@ export class NewsApiService {
   private url = 'https://newsapi.org/v2/top-headlines';
   private pageSize = 10;
   private apiKey = '7ffb0230f63c467cb6b8c565275d3a08';
-  private country = 'br';
+  private country = 'us';
 
   private pagesInput: Subject<number>;
   pagesOutput: Observable<Article[]>;
